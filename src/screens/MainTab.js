@@ -19,8 +19,6 @@ Navigation.registerComponent('neil.SideDrawerScreen', () => SideDrawerScreen);
 
 
 // start the app
-
- 
 const MainTab = () => {
   Promise.all([
                 Icon.getImageSource('md-home', 30),

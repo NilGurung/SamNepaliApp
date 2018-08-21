@@ -12,8 +12,8 @@ const styles = StyleSheet.create({
     title: {
         top: 20,
         left: 80,
-        fontSize: 24,
-        color: 'white',
+        fontSize: 20,
+        color: 'black',
     },
     image: {
         height: 100,
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 15,
         left: 10,
-        color: 'white',
+        color: 'black',
         backgroundColor: 'rgba(255,255,255,0)',
     }
 })
@@ -47,7 +47,7 @@ const MenuItem = (props) =>  {
                 />
                 <Icon
                     name={props.menu.icon}
-                    size={70} 
+                    size={50} 
                     style={styles.icon}
                 />
                 <Text style={[theme.cardTitleStyle, styles.title]}>{props.menu.title}</Text>
