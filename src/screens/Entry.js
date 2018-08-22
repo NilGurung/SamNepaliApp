@@ -23,7 +23,7 @@ const store = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && windo
 
 export default class Entry extends Component {
     
-    state = { loggedIn: false};
+    state = { loggedIn: true};
 
     componentWillMount() {
        // Initialize Firebase

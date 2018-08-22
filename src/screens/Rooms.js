@@ -5,6 +5,7 @@ import _ from 'lodash';
 //import AdItem from './AdItem';
 //import Icon from 'react-native-vector-icons/EvilIcons';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import RoomList from '../components/room/RoomList';
 ///import AdDetail from './AdDetail';
 //import { loadInitialContacts } from '../actions';
 
@@ -71,7 +72,7 @@ class Rooms extends Component {
         return (
           <View style={styles.container}>
             {/* {this.renderInitialView()} */}
-            <Text>Room</Text>
+            <RoomList />
           </View>
         );
       }
