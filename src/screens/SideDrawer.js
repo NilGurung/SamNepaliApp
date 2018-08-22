@@ -54,10 +54,10 @@ export default class SideDrawer extends Component {
             .then(function() {
                 // Sign-out successful.
                 self._toggleDrawer();
-                self.props.navigator.popToRoot({
-                    animated: true, // does the popToRoot have transition animation or does it happen immediately (optional)
-                    animationType: 'fade', // 'fade' (for both) / 'slide-horizontal' (for android) does the popToRoot have different transition animation (optional)
-                  });
+                self.props.navigator.showModal({
+                    screen: "neil.LoginScreen",
+                    title: "Sam Nepali App"
+                })
             })
             .catch(function(error) {
                 // An error happened
