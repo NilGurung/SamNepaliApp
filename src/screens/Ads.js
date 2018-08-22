@@ -23,12 +23,26 @@ const styles = StyleSheet.create({
                   
 class Ads extends Component {
 
-
-    static navigationOptions = {
-        tabBarLabel: 'Ads',
-        tabBarIcon: ({ tintColor }) =>
-        <Icon name={'buysellads'} size={45}  color={tintColor} />
+    
+    constructor(props) {
+        super(props);
+        this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
+        console.log(props);
     }
+
+    onNavigatorEvent = event => {
+        if(event.type === "NavBarButtonPress") {
+            if(event.id === "sideDrawerToggle") {
+                this.props.navigator.toggleDrawer({
+                    side: 'left', // the side of the drawer since you can have two, 'left' / 'right'
+                    animated: true, // does the toggle have transition animation or does it happen immediately (optional)
+                    
+                  });
+            }
+        }
+    }
+
+    
 
     componentWillMount() {
         //this.props.loadInitialContacts();

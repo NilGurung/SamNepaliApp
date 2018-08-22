@@ -20,11 +20,23 @@ const styles = StyleSheet.create({
                   
 class Rooms extends Component {
 
+    
+    constructor(props) {
+        super(props);
+        this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
+        console.log(props);
+    }
 
-    static navigationOptions = {
-        tabBarLabel: 'Rooms',
-        tabBarIcon: ({ tintColor }) =>
-        <Icon name={'account-balance'} size={45}  color={tintColor} />
+    onNavigatorEvent = event => {
+        if(event.type === "NavBarButtonPress") {
+            if(event.id === "sideDrawerToggle") {
+                this.props.navigator.toggleDrawer({
+                    side: 'left', // the side of the drawer since you can have two, 'left' / 'right'
+                    animated: true, // does the toggle have transition animation or does it happen immediately (optional)
+                    
+                  });
+            }
+        }
     }
 
     // componentWillMount() {
