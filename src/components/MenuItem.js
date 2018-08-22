@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, View, Image, TouchableWithoutFeedback} from 'react-native';
 import {getTheme} from 'react-native-material-kit';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Login from './Login.js';
 const theme = getTheme();
 
 const styles = StyleSheet.create({
@@ -31,13 +32,15 @@ const styles = StyleSheet.create({
     }
 })
 
+
+
                     
 const MenuItem = (props) =>  {
     
      return(
          <TouchableWithoutFeedback
             onPress = {() => {
-                
+                props.menu.onPress()      
             }}
             >
               <View style={[theme.cardStyle, styles.card]}>

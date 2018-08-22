@@ -23,7 +23,7 @@ const store = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && windo
 
 export default class Entry extends Component {
     
-    state = { loggedIn: true};
+    state = { loggedIn: false};
 
     componentWillMount() {
        // Initialize Firebase
@@ -37,17 +37,17 @@ export default class Entry extends Component {
       };
       firebase.initializeApp(config);
   
-      // firebase.auth().onAuthStateChanged((user) => {
-      //    if(user) {
-      //      this.setState({ loggedIn: true })
-      //    } else {
-      //      this.setState({loggedIn: false })
-      //    }
-      // })
+      firebase.auth().onAuthStateChanged((user) => {
+         if(user) {
+           this.setState({ loggedIn: true })
+         } else {
+           this.setState({loggedIn: false })
+         }
+      })
     }
   
     renderIntialView() {
-     
+     console.log(this.state.loggedIn)
       switch(this.state.loggedIn) {
         case true:
             MainTab()

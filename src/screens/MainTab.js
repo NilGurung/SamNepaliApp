@@ -6,6 +6,7 @@ import RoomScreen from './Rooms';
 import JobScreen from './Jobs';
 import AdScreen from './Ads';
 import SideDrawerScreen from './SideDrawer';
+import LoginScreen from '../components/Login';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 
@@ -14,6 +15,7 @@ Navigation.registerComponent('neil.HomeScreen', () => HomeScreen);
 Navigation.registerComponent('neil.RoomScreen', () => RoomScreen);
 Navigation.registerComponent('neil.JobScreen', () => JobScreen);
 Navigation.registerComponent('neil.AdScreen', () => AdScreen);
+Navigation.registerComponent('neil.LoginScreen', () => LoginScreen);
 Navigation.registerComponent('neil.SideDrawerScreen', () => SideDrawerScreen);
 
 

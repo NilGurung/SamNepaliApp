@@ -23,12 +23,12 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
+        console.log(props);
     }
 
     onNavigatorEvent = event => {
         if(event.type === "NavBarButtonPress") {
             if(event.id === "sideDrawerToggle") {
-                console.log(this.props.navigator)
                 this.props.navigator.toggleDrawer({
                     side: 'left', // the side of the drawer since you can have two, 'left' / 'right'
                     animated: true, // does the toggle have transition animation or does it happen immediately (optional)

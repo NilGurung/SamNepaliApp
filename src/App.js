@@ -9,6 +9,7 @@
 import {Platform, StyleSheet, Text, View} from 'react-native';
 import { Navigation } from 'react-native-navigation';
 import EntryScreen  from './screens/Entry';
+import LoginScreen  from './components/Login';
 // import {Provider } from 'react-redux';
 // import { createStore, applyMiddleware } from 'redux';
 // import firebase from 'firebase';
@@ -20,6 +21,7 @@ import EntryScreen  from './screens/Entry';
 
 //register all of your app's screens
 Navigation.registerComponent('neil.EntryScreen', () => EntryScreen);
+Navigation.registerComponent('neil.LoginScreen', () => LoginScreen);
 
 
 Navigation.startSingleScreenApp({
