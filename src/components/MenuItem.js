@@ -40,7 +40,7 @@ const MenuItem = (props) =>  {
          <TouchableWithoutFeedback
             onPress = {() => {
                 props.menu.onPress()  
-                console.log(props)    
+                
             }}
             >
               <View style={[theme.cardStyle, styles.card]}>

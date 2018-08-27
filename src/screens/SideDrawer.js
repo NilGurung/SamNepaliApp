@@ -9,7 +9,7 @@ export default class SideDrawer extends Component {
         this._goToHome = this._goToHome.bind(this);
         this._goToRooms = this._goToRooms.bind(this);
         this._goToJobs = this._goToJobs.bind(this);
-        this._goToAds = this._goToRooms.bind(this);
+        this._goToAds = this._goToAds.bind(this);
         this._logout = this._logout.bind(this);
 		//this._open = this._openSearch.bind(this);
     }
