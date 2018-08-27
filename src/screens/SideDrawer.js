@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text ,Dimensions, StyleSheet, ListView } from 'react-native';
+import {View, Text ,Dimensions, StyleSheet, ListView, Image } from 'react-native';
 import MenuItem from '../components/MenuItem';
 import firebase from 'firebase';
 
@@ -17,14 +17,14 @@ export default class SideDrawer extends Component {
     //open home
     _goToHome() {
 		this._toggleDrawer();
-		this.props.navigator.popToRoot({
-			screen: 'neil.HomeScreen'
-		});
+		this.props.navigator.switchToTab({
+            tabIndex: 0 // (optional) if missing, this screen's tab will become selected
+          });
 	}
 
     //open room
-    _goToRooms() {
-		this._toggleDrawer();
+    _goToRooms() { 
+        this._toggleDrawer();
 		this.props.navigator.switchToTab({
             tabIndex: 1 // (optional) if missing, this screen's tab will become selected
           });
@@ -43,7 +43,8 @@ export default class SideDrawer extends Component {
 		this._toggleDrawer();
 		this.props.navigator.switchToTab({
             tabIndex: 3 // (optional) if missing, this screen's tab will become selected
-          });
+
+        });
     }
     
 
@@ -119,7 +120,12 @@ export default class SideDrawer extends Component {
                         (rowData) => 
                             <MenuItem menu={rowData} />
                         }
+                    style ={styles.listView}
                 />
+                <View style={{marginTop: 10,padding: 5,marginBottom: 10, justifyContent: 'center', alignItems: 'center'}}>
+                        <Image source={{uri : '/Users/nilkanthagurung/Desktop/react-native-project/crm/src/images/bill.jpeg'}}
+                style={{width: 80, height: 80, borderRadius: 80/2, }} />
+                </View>
             </View>
         )
     }
@@ -127,8 +133,12 @@ export default class SideDrawer extends Component {
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
         paddingTop: 22,
         backgroundColor: "white",
-        flex: 1,
-    }
+      
+    },
+    listView: {
+        marginTop: 50,
+    },
 })

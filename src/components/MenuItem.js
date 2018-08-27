@@ -8,7 +8,7 @@ const theme = getTheme();
 const styles = StyleSheet.create({
     card: {
         marginTop: 20,
-        height: 100,
+        height: 80,
     },
     title: {
         top: 20,
@@ -36,11 +36,11 @@ const styles = StyleSheet.create({
 
                     
 const MenuItem = (props) =>  {
-    
-     return(
+       return(
          <TouchableWithoutFeedback
             onPress = {() => {
-                props.menu.onPress()      
+                props.menu.onPress()  
+                console.log(props)    
             }}
             >
               <View style={[theme.cardStyle, styles.card]}>
