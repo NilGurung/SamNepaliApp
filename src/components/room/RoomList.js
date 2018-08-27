@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { StyleSheet, View, ListView} from 'react-native';
 import rooms from '../../reducers/room.json';
 import RoomItem from './RoomItem';
+import FloatButton from '../../components/common/FloatButton';
 
 const styles = StyleSheet.create({
     container: {
@@ -9,7 +10,6 @@ const styles = StyleSheet.create({
       width: 353,
       flexWrap: 'wrap',
       paddingTop: 20,
-      paddingLeft: 20,
     },
     card: {
         marginTop: 10,
@@ -96,6 +96,7 @@ export default class RoomList extends Component {
                             <RoomItem room={rowData} />
                         }
                 />
+                 <FloatButton style={{resizeMode: 'contain',}}/>
             </View>
         )
     }

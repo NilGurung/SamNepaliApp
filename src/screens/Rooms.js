@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 //import AdItem from './AdItem';
 //import Icon from 'react-native-vector-icons/EvilIcons';
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import RoomList from '../components/room/RoomList';
+
 ///import AdDetail from './AdDetail';
 //import { loadInitialContacts } from '../actions';
 
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
       width: 353,
       flexWrap: 'wrap',
       paddingTop: 20,
-      paddingLeft: 20,
+      paddingLeft: 10,
     },
 })
                   
@@ -73,6 +73,7 @@ class Rooms extends Component {
           <View style={styles.container}>
             {/* {this.renderInitialView()} */}
             <RoomList />
+           
           </View>
         );
       }
