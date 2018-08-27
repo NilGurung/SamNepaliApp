@@ -9,62 +9,8 @@ const styles = StyleSheet.create({
       flex: 1,
       width: 353,
       flexWrap: 'wrap',
-      paddingTop: 20,
+      paddingTop: 10,
     },
-    card: {
-        marginTop: 10,
-        paddingBottom: 20,
-        marginBottom: 20,
-        borderColor: 'lightgrey',
-        borderWidth: 0.5,
-      },
-      title1: {
-          top: 10,
-          left: 80,
-          fontSize: 24,
-      },
-      title2: {
-          top: 35,
-          left: 82,
-          fontSize: 18,
-      },
-      image: {
-          flex: 0,
-          height: 100,
-          width: 333,
-          backgroundColor: 'transparent',
-          justifyContent: 'center',
-          alignItems: 'center',
-      },
-      closeIcon: {
-          position: 'absolute',
-          top: 5,
-          left: 295,
-          color: 'rgba(233,166,154,0.8)',
-          backgroundColor: 'rgba(255,255,255,0)',
-      },  
-      icon: {
-          position: 'absolute',
-          top: 15,
-          left: 0,
-          color: 'white',
-          backgroundColor: 'rgba(255,255,255,0)',
-      },
-      textArea: {
-          flexDirection: 'row',
-          paddingLeft: 20,
-          paddingTop: 10,
-          width: 260,
-      },
-      textIcons: {
-          color: '#26a69a',
-      },
-      actionArea: {
-          paddingTop: 10,
-          flexDirection: 'row',
-          justifyContent: 'space-around',
-          alignItems: 'center',
-      },
 })
 
 export default class RoomList extends Component {
