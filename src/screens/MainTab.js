@@ -51,7 +51,7 @@ const MainTab = () => {
           label: 'Room',
           screen: 'neil.RoomScreen',
           icon: sources[1],
-          title: 'Room',
+          title: 'Rooms',
           navigatorButtons: {
             leftButtons: [
                {
@@ -66,7 +66,7 @@ const MainTab = () => {
           label: 'Job',
           screen: 'neil.JobScreen',
           icon: sources[2],
-          title: 'Job',
+          title: 'Jobs',
           navigatorButtons: {
             leftButtons: [
                {
@@ -81,7 +81,7 @@ const MainTab = () => {
           label: 'Ad',
           screen: 'neil.AdScreen',
           icon: sources[3],
-          title: 'Ad',
+          title: 'Ads',
           navigatorButtons: {
             leftButtons: [
                {
