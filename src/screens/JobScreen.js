@@ -2,27 +2,25 @@ import React, {Component} from 'react';
 import { StyleSheet, Text, View, ListView } from 'react-native';
 import { connect } from 'react-redux'; 
 import _ from 'lodash';
-//import PeopleItem from './PeopleItem';
-//import Icon from 'react-native-vector-icons/EvilIcons';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-//import PeopleDetail from './PeopleDetail';
-//import { loadInitialContacts } from '../actions';
+import Jobs from '../components/Job/Jobs';
+
 
 const styles = StyleSheet.create({
     container: {
       flex: 1,
       width: 353,
       flexWrap: 'wrap',
-      paddingTop: 20,
-      paddingLeft: 20,
+      padding: 5
     },
 })
                   
-class Jobs extends Component {
+class JobScreen extends Component {
     constructor(props) {
         super(props);
+        // Bind the this context to the handler function
+        this.setAddButtonStatus = this.setAddButtonStatus.bind(this);
         this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
-        console.log(props);
+        
     }
 
     onNavigatorEvent = event => {
@@ -40,35 +38,23 @@ class Jobs extends Component {
        // this.props.loadInitialContacts();
     }
 
-    renderInitialView() {
-        const ds = new ListView.DataSource({
-            rowHasChanged: (r1,r2) => r1 !== r2,
-        });
-        this.dataSource = ds.cloneWithRows(this.props.people)
-        if(this.props.detailsView === true) {
-            return (
-                <JobDetail />
-            );
-        } else {
-            return (
-            <ListView
-                    enableEmptySections={true}
-                    dataSource = {this.dataSource}
-                    renderRow = {
-                        (rowData) => 
-                            <JobItem job={rowData} />
-                        }
-                />
-                )
-        }
+    setAddButtonStatus() {
+        this.props.navigator.push({
+            screen: 'neil.AddScreen',
+            title: 'Add a New Job',
+            animated: true, // does the push have transition animation or does it happen immediately (optional)
+            animationType: 'fade', // 'fade' (for both) / 'slide-horizontal' (for android) does the push have different transition animation (optional)
+        })
     }
+
 
 
     render() {
         return (
           <View style={styles.container}>
-            {/* {this.renderInitialView()} */}
-            <Text>Job</Text>
+            <View style={styles.container}>
+                <Jobs onPress={this.setAddButtonStatus.bind(this)}/>
+            </View>
           </View>
         );
       }
@@ -84,4 +70,4 @@ class Jobs extends Component {
 //     };
 // };
 
-export default Jobs;
+export default JobScreen;

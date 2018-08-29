@@ -1,7 +1,7 @@
 import { Navigation } from 'react-native-navigation';
 import HomeScreen from './screens/Home';
 import RoomScreen from './screens/Rooms';
-import JobScreen from './screens/Jobs';
+import JobScreen from './screens/JobScreen';
 import AdScreen from './screens/Ads';
 import SideDrawerScreen from './screens/SideDrawer';
 import LoginScreen from './components/Login';
