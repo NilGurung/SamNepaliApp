@@ -21,9 +21,9 @@ const ColoredRaisedButton = MKButton.coloredFab()
 .build();
 
 
-const FloatButton = () => {
+const FloatButton = (props) => {
     return(
-            <ColoredRaisedButton style={[styles.TouchableOpacityStyle]} >
+            <ColoredRaisedButton style={[styles.TouchableOpacityStyle]} onPress={props.onPress.bind(this)} >
                 <Image pointerEvents="none" source={require('../../images/plus_white.png')}  style={styles.FloatingButtonStyle}/>
              </ColoredRaisedButton>
 

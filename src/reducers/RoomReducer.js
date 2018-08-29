@@ -2,7 +2,7 @@ import people from './room.json';
 
 const initialState = {
     rooms: [],
-    detailView: false,
+    addView: false,
     personSelected: null,
     first_name: '',
     last_name: '',

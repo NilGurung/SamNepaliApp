@@ -15,8 +15,6 @@ const styles = StyleSheet.create({
 
 export default class RoomList extends Component {
 
-    
-
     componentWillMount() {
         //this.props.loadInitialContacts();
     }
@@ -26,14 +24,20 @@ export default class RoomList extends Component {
         return rooms
     }
 
+    //open the add rooms
+    // addNewRoom(props) {
+    //     this.props.addViewClicked = true;
+    //     console.log(this.props.addViewClicked);
+    // }
+
     render() {
+        
         const ds = new ListView.DataSource({
             rowHasChanged: (r1,r2) => r1 !== r2,
         });
         this.dataSource = ds.cloneWithRows(this.loadDummyData())
         return (
-           
-            <View style={styles.container}>
+            <View style={styles.container} >
                <ListView
                     enableEmptySections={true}
                     dataSource = {this.dataSource}
@@ -42,7 +46,7 @@ export default class RoomList extends Component {
                             <RoomItem room={rowData} />
                         }
                 />
-                 <FloatButton style={{resizeMode: 'contain',}}/>
+                 <FloatButton style={{resizeMode: 'contain',}} onPress={this.props.onPress} />
             </View>
         )
     }

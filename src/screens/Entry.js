@@ -47,7 +47,6 @@ export default class Entry extends Component {
     }
   
     renderIntialView() {
-     console.log(this.state.loggedIn)
       switch(this.state.loggedIn) {
         case true:
             MainTab()

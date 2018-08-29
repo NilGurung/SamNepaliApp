@@ -2,12 +2,9 @@ import React, {Component} from 'react';
 import { StyleSheet, Text, View, ListView } from 'react-native';
 import { connect } from 'react-redux'; 
 import _ from 'lodash';
-//import AdItem from './AdItem';
-//import Icon from 'react-native-vector-icons/EvilIcons';
 import RoomList from '../components/room/RoomList';
 
-///import AdDetail from './AdDetail';
-//import { loadInitialContacts } from '../actions';
+
 
 const styles = StyleSheet.create({
     container: {
@@ -20,12 +17,17 @@ const styles = StyleSheet.create({
 })
                   
 class Rooms extends Component {
-
     
     constructor(props) {
         super(props);
+        
+        // Bind the this context to the handler function
+        this.setAddButtonStatus = this.setAddButtonStatus.bind(this);
         this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
-        console.log(props);
+        // Set some state
+        this.state = {
+            addViewClicked: false
+        };
     }
 
     onNavigatorEvent = event => {
@@ -40,40 +42,25 @@ class Rooms extends Component {
         }
     }
 
+    setAddButtonStatus() {
+        this.props.navigator.push({
+            screen: 'neil.AddScreen',
+            title: 'Add a New Room',
+            animated: true, // does the push have transition animation or does it happen immediately (optional)
+            animationType: 'fade', // 'fade' (for both) / 'slide-horizontal' (for android) does the push have different transition animation (optional)
+        })
+    }
+
     // componentWillMount() {
     //     this.props.loadInitialContacts();
     // }
 
-    renderInitialView() {
-        const ds = new ListView.DataSource({
-            rowHasChanged: (r1,r2) => r1 !== r2,
-        });
-        this.dataSource = ds.cloneWithRows(this.props.people)
-        if(this.props.detailsView === true) {
-            return (
-                <RoomDetail />
-            );
-        } else {
-            return (
-            <ListView
-                    enableEmptySections={true}
-                    dataSource = {this.dataSource}
-                    renderRow = {
-                        (rowData) => 
-                            <RoomItem job={rowData} />
-                        }
-                />
-                )
-        }
-    }
 
 
-    render() {
+    render() { 
         return (
           <View style={styles.container}>
-            {/* {this.renderInitialView()} */}
-            <RoomList />
-           
+            <RoomList onPress={this.setAddButtonStatus.bind(this)}/>
           </View>
         );
       }

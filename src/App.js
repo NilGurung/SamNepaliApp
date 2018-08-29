@@ -6,23 +6,17 @@
  * @flow
  */
 
-import {Platform, StyleSheet, Text, View} from 'react-native';
 import { Navigation } from 'react-native-navigation';
-import EntryScreen  from './screens/Entry';
-import LoginScreen  from './components/Login';
-// import {Provider } from 'react-redux';
-// import { createStore, applyMiddleware } from 'redux';
-// import firebase from 'firebase';
-
-// import Loader from './components/Loader';
-// import reducers from './reducers/PeopleReducer';
-// import Thunk from 'redux-thunk';
+import {Provider } from 'react-redux';
+import { registerScreens }  from './Screens';
+import { createStore, applyMiddleware } from 'redux';
+import reducers from './reducers/PeopleReducer';
+import Thunk from 'redux-thunk';
+                 
+const store = createStore(reducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(), applyMiddleware(Thunk));
 
 
-//register all of your app's screens
-Navigation.registerComponent('neil.EntryScreen', () => EntryScreen);
-Navigation.registerComponent('neil.LoginScreen', () => LoginScreen);
-
+registerScreens(store, Provider);
 
 Navigation.startSingleScreenApp({
   screen: {
