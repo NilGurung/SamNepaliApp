@@ -70,7 +70,6 @@ const styles = StyleSheet.create({
 
                     
 const Job = (props) =>  {
-     console.log(props)
      return(
             <View style={[theme.cardStyle, styles.card]}>
                 <ImageBackground

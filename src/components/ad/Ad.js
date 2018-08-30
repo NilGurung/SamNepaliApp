@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
         // marginBottom: 20,
         // borderColor: 'lightgrey',
         // borderWidth: 0.5,
-        backgroundColor: 'teal'
+        backgroundColor: 'lightgrey'
       },
       title1: {
           top: 0,
@@ -69,29 +69,29 @@ const styles = StyleSheet.create({
 })
 
                     
-const RoomItem = (props) =>  {
+const Ad = (props) =>  {
      return(
             <View style={[theme.cardStyle, styles.card]}>
                 <ImageBackground
                     source={{ uri: '/Users/nilkanthagurung/Desktop/react-native-project/crm/src/images/card-bg@3x.png'}}
                     style={[theme.cardImageStyle, styles.image]}
                 >
-                <Text style={[theme.cardActionStyle, styles.title1]}>{props.room.title}</Text>
-                <Text style={[theme.cardTitleStyle, styles.title2]}>{props.room.first_name} {props.room.last_name}</Text>
-                <Text style={[theme.cardActionStyle, styles.textArea]}>{props.room.desc}</Text>
+                <Text style={[theme.cardActionStyle, styles.title1]}>{props.ad.title}</Text>
+                <Text style={[theme.cardTitleStyle, styles.title2]}>{props.ad.first_name} {props.ad.last_name}</Text>
+                <Text style={[theme.cardActionStyle, styles.textArea]}>{props.ad.desc}</Text>
                 <View style={styles.actionArea}>
                     <TouchableOpacity
-                        onPress={() => { this.handleClick(`tel:${this.props.room.phone}`)}}
+                        onPress={() => { this.handleClick(`tel:${this.props.ad.phone}`)}}
                     >
                         <Image source={require('../../images/call.png')} style={styles.actionImage}/>
                     </TouchableOpacity>
                     <TouchableOpacity
-                        onPress={() => { this.handleClick(`sms:${this.props.room.phone}`)}}
+                        onPress={() => { this.handleClick(`sms:${this.props.ad.phone}`)}}
                     >
                         <Image source={require('../../images/sms.png')} style={styles.actionImage}/>
                     </TouchableOpacity>
                     <TouchableOpacity
-                        onPress={() => { this.handleClick(`mailto:${this.props.room.email}`)}}
+                        onPress={() => { this.handleClick(`mailto:${this.props.ad.email}`)}}
                     >
                         <Image source={require('../../images/email.png')} style={styles.actionImage}/>
                     </TouchableOpacity>
@@ -107,4 +107,4 @@ const RoomItem = (props) =>  {
 
 
 //export default connect(null, actions)(RoomItem);
-export default RoomItem;
+export default Ad;

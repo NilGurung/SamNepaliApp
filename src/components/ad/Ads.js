@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { StyleSheet, View, ListView} from 'react-native';
 import rooms from '../../reducers/room.json';
-import RoomItem from './Ad';
+import Ad from './Ad';
 import FloatButton from '../common/FloatButton';
 
 const styles = StyleSheet.create({
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     },
 })
 
-export default class RoomList extends Component {
+export default class Ads extends Component {
 
     componentWillMount() {
         //this.props.loadInitialContacts();
@@ -43,7 +43,7 @@ export default class RoomList extends Component {
                     dataSource = {this.dataSource}
                     renderRow = {
                         (rowData) => 
-                            <RoomItem room={rowData} />
+                            <Ad ad={rowData} />
                         }
                 />
                  <FloatButton style={{resizeMode: 'contain',}} onPress={this.props.onPress} />

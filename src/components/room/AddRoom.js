@@ -57,6 +57,7 @@ class AddRoom extends Component {
                         data={data}
                     />
                     <MKTextField
+                        floatingLabelEnabled = {true}
                         textINputStyle={styles.fieldStyle}
                         placeholder={'Details...'}
                         tintColor = {MKColor.Teal}

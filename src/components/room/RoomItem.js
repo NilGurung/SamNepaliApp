@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
         // marginBottom: 20,
         // borderColor: 'lightgrey',
         // borderWidth: 0.5,
-        backgroundColor: 'teal'
+        backgroundColor: 'brown'
       },
       title1: {
           top: 0,

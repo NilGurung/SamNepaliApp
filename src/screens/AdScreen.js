@@ -2,12 +2,7 @@ import React, {Component} from 'react';
 import { StyleSheet, Text, View, ListView } from 'react-native';
 import { connect } from 'react-redux'; 
 import _ from 'lodash';
-//import AdItem from './AdItem';
-//import Icon from 'react-native-vector-icons/EvilIcons';
-import Icon from 'react-native-vector-icons/FontAwesome';
-//import AdDetail from './AdDetail';
-//import { loadInitialContacts } from '../actions';
-
+import Ads from '../components/ad/Ads';
 
 
 
@@ -16,18 +11,19 @@ const styles = StyleSheet.create({
       flex: 1,
       width: 353,
       flexWrap: 'wrap',
-      paddingTop: 20,
-      paddingLeft: 20,
+      padding: 5
     },
 })
                   
-class Ads extends Component {
+class AdScreen extends Component {
 
     
     constructor(props) {
         super(props);
         this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
-        console.log(props);
+        
+        // Bind the this context to the handler function
+        this.setAddButtonStatus = this.setAddButtonStatus.bind(this);
     }
 
     onNavigatorEvent = event => {
@@ -48,35 +44,23 @@ class Ads extends Component {
         //this.props.loadInitialContacts();
     }
 
-    renderInitialView() {
-        const ds = new ListView.DataSource({
-            rowHasChanged: (r1,r2) => r1 !== r2,
-        });
-        this.dataSource = ds.cloneWithRows(this.props.people)
-        if(this.props.detailsView === true) {
-            return (
-                <AdDetail />
-            );
-        } else {
-            return (
-            <ListView
-                    enableEmptySections={true}
-                    dataSource = {this.dataSource}
-                    renderRow = {
-                        (rowData) => 
-                            <AdItem job={rowData} />
-                        }
-                />
-                )
-        }
+    setAddButtonStatus() {
+        this.props.navigator.push({
+            screen: 'neil.AddScreen',
+            title: 'Add a New Add',
+            animated: true, // does the push have transition animation or does it happen immediately (optional)
+            animationType: 'fade', // 'fade' (for both) / 'slide-horizontal' (for android) does the push have different transition animation (optional)
+        })
     }
+
+
+    
 
 
     render() {
         return (
-          <View style={styles.container}>
-            {/* {this.renderInitialView()} */}
-            <Text>Ads</Text>
+            <View style={styles.container}>
+                <Ads onPress={this.setAddButtonStatus.bind(this)}/>
           </View>
         );
       }
@@ -92,4 +76,4 @@ class Ads extends Component {
 //     };
 // };
 
-export default Ads;
+export default AdScreen;

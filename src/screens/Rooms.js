@@ -24,10 +24,7 @@ class Rooms extends Component {
         // Bind the this context to the handler function
         this.setAddButtonStatus = this.setAddButtonStatus.bind(this);
         this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
-        // Set some state
-        this.state = {
-            addViewClicked: false
-        };
+        
     }
 
     onNavigatorEvent = event => {

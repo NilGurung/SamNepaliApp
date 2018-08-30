@@ -26,7 +26,7 @@ const AddButton = MKButton.coloredButton()
     .withText('ADD')
     .build();
                   
-class AddRoom extends Component {
+class AddAd extends Component {
     static navigationOptions = {
         tabBarLabel: 'Add Person',
         tabBarIcon: ({ tintColor }) =>
@@ -80,4 +80,4 @@ const mapStateToProps = state => {
 
 
 
-export default AddRoom;
+export default AddAd;
