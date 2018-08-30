@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, ScrollView } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/EvilIcons';
 import { MKTextField, MKColor, MKButton} from 'react-native-material-kit';
 import { Dropdown } from 'react-native-material-dropdown';
@@ -17,9 +17,13 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     fieldStyle : {
-        height: 40,
+        height: 140,
         color: MKColor.Orange
     },
+    addButton: {
+        backgroundColor: 'red',
+        marginTop: 120,
+    }
 })
 
 const AddButton = MKButton.coloredButton()
@@ -55,16 +59,18 @@ class AddRoom extends Component {
                     <Dropdown
                         label='Select the State'
                         data={data}
+
                     />
                     <MKTextField
-                        floatingLabelEnabled = {true}
-                        textINputStyle={styles.fieldStyle}
+                        textInputStyle={styles.fieldStyle}
                         placeholder={'Details...'}
                         tintColor = {MKColor.Teal}
                         value={this.props.details}
-                        onChangeText={value => this.props.formUpdate({prop: 'details', value})}
+                        //onChangeText={value => this.props.formUpdate({prop: 'details', value})}
+                        
                     />
-                    <View styles={styles.addButton}>
+                    
+                    <View style={styles.addButton}>
                         <AddButton onPress={this.onAddPress.bind(this)} />
                     </View>
                 </View>
