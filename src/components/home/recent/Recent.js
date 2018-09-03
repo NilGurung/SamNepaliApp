@@ -27,23 +27,13 @@ export default class Recent extends Component {
     }
 
    
-
-    //open the add rooms
-    // addNewRoom(props) {
-    //     this.props.addViewClicked = true;
-    //     console.log(this.props.addViewClicked);
-    // }
-
     _renderItem = ({item}) => (
         <RoomItem room={item} />
       );
 
     render() {
         
-        // const ds = new ListView.DataSource({
-        //     rowHasChanged: (r1,r2) => r1 !== r2,
-        // });
-        // this.dataSource = ds.cloneWithRows(this.loadDummyData())
+   
         return (
             <View style={styles.container} >
                  <Text>Recent</Text>
