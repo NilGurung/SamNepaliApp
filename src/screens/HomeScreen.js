@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
-import { StyleSheet, Text, View, ListView } from 'react-native';
+import { StyleSheet, Text, View, Alert, ScrollView} from 'react-native';
 import { connect } from 'react-redux'; 
 import _ from 'lodash';
-import HomeItem from '../components/home/HomeItem';
+import Recent from '../components/home/recent/Recent';
+import Feature from '../components/home/feature/Feature';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import MyCarousel from '../components/home/Carousel/Carousel';
 //import Icon from 'react-native- vector-icons/';
 //import HomeDetails from '../components/home/HomeDetails';
 //import { loadInitialContacts } from '../actions';
@@ -18,12 +20,13 @@ const styles = StyleSheet.create({
     },
 })
                   
-class Home extends Component {
+class HomeScreen extends Component {
+
+    
 
     constructor(props) {
         super(props);
         this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
-        console.log(props);
     }
 
     onNavigatorEvent = event => {
@@ -34,6 +37,10 @@ class Home extends Component {
                     animated: true, // does the toggle have transition animation or does it happen immediately (optional)
                     
                   });
+            } 
+
+            if (event.id === 'search') {
+                Alert.alert('NavBar', 'Search button pressed');
             }
         }
     }
@@ -44,40 +51,39 @@ class Home extends Component {
         <Icon name={'home'} size={45}  color={tintColor} />
     }
 
-    componentWillMount() {
-        //this.props.loadInitialContacts();
+    componentDidMount() {
+        this.props.navigator.setButtons({
+            rightButtons: [
+                {
+                    title: 'Seach',
+                    id: 'search'
+                }
+            ]
+        })
     }
 
-    renderInitialView() {
-        // const ds = new ListView.DataSource({
-        //     rowHasChanged: (r1,r2) => r1 !== r2,
-        // });
-        // this.dataSource = ds.cloneWithRows(this.props.people)
-        // if(this.props.detailsView === true) {
-        //     return (
-        //          <HomeDetails />
-        //     );
-        // } else {
-        //     return (
-        //     <ListView
-        //             enableEmptySections={true}
-        //             dataSource = {this.dataSource}
-        //             renderRow = {
-        //                 (rowData) => 
-        //                     <HomeItem job={rowData} />
-        //                 }
-        //         />
-        //         )
-        // }
+
+    loadImages() {
+       return [
+            {"src": "/Users/nilkanthagurung/Desktop/react-native-project/crm/src/images/1.jpeg"},
+            {"src": "/Users/nilkanthagurung/Desktop/react-native-project/crm/src/images/2.jpeg"},
+            {"src": "/Users/nilkanthagurung/Desktop/react-native-project/crm/src/images/3.jpeg"}
+        ]
     }
+
+  
 
 
     render() {
         return (
-          <View style={styles.container}>
-            {/* {this.renderInitialView()} */}
-            <Text>Home</Text>
-          </View>
+            <ScrollView>
+                <View style={styles.container}>
+                    <Text>Slider Component</Text>
+                    <MyCarousel images={this.loadImages()}  />
+                    <Recent />
+                    <Feature />
+                </View>
+            </ScrollView>
         );
       }
 }
@@ -92,4 +98,4 @@ class Home extends Component {
 //     };
 // };
 
-export default Home;
+export default HomeScreen;

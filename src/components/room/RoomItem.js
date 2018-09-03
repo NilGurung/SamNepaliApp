@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
         // marginBottom: 20,
         // borderColor: 'lightgrey',
         // borderWidth: 0.5,
+        width: 400,
         backgroundColor: 'brown'
       },
       title1: {
@@ -59,6 +60,7 @@ const styles = StyleSheet.create({
           justifyContent: 'space-around',
           alignItems: 'center',
           backgroundColor: '#B2A1A1',
+          width: 400,
       },
       actionImage: {
           margin: 20,
