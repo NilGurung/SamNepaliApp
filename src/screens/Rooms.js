@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import { StyleSheet, Text, View, ListView } from 'react-native';
 import { connect } from 'react-redux'; 
 import _ from 'lodash';
+import rooms from '../reducers/room.json';
 import RoomList from '../components/room/RoomList';
+import SearchBar from 'react-native-search-bar'
 
 
 
@@ -27,6 +29,13 @@ class Rooms extends Component {
         
     }
 
+    state = {
+        search: '',
+        rooms: rooms
+      }
+    
+    search1: SearchBar
+
     onNavigatorEvent = event => {
         if(event.type === "NavBarButtonPress") {
             if(event.id === "sideDrawerToggle") {
@@ -39,6 +48,11 @@ class Rooms extends Component {
         }
     }
 
+    componentDidMount() {
+        this.search1.focus();
+    }
+
+
     setAddButtonStatus() {
         this.props.navigator.push({
             screen: 'neil.AddScreen',
@@ -48,16 +62,50 @@ class Rooms extends Component {
         })
     }
 
+    cancelSearchRooms() {
+        this.setState({
+            rooms: rooms
+          });
+          this.search1.unFocus()
+    }
+
     // componentWillMount() {
     //     this.props.loadInitialContacts();
     // }
+
+    
+
+    searchRooms() {
+        var searchText = this.state.search;
+        var regexSearchWord = new RegExp(searchText, 'i');
+        var searchRooms = [];
+        this.state.rooms.map(
+            function(room) {
+                
+                if(room.title.search(regexSearchWord) !== -1) {
+                    searchRooms.push(room);
+                 }
+            } 
+        )
+        
+        this.setState({
+          rooms: searchRooms
+        });
+    }
 
 
 
     render() { 
         return (
           <View style={styles.container}>
-            <RoomList onPress={this.setAddButtonStatus.bind(this)}/>
+            <SearchBar
+                ref={ref => (this.search1 = ref)}
+                onChangeText={search => this.setState({ search })}
+                placeholder='Search Rooms'
+                onSearchButtonPress={() => this.searchRooms()}
+                onCancelButtonPress={() => this.cancelSearchRooms()}
+            />
+            <RoomList onPress={this.setAddButtonStatus.bind(this)} rooms={this.state.rooms}/>
           </View>
         );
       }

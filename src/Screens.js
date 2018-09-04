@@ -7,10 +7,12 @@ import SideDrawerScreen from './screens/SideDrawer';
 import LoginScreen from './components/Login';
 import AddScreen from './components/room/AddRoom';
 import EntryScreen  from './screens/Entry';
+import SplashScreen  from './screens/splash.screen';
 
 
 export function registerScreens(store, provider) {
     //register all of your app's screens
+    Navigation.registerComponent('neil.SplashScreen', () => SplashScreen);
     Navigation.registerComponent('neil.EntryScreen', () => EntryScreen);
     Navigation.registerComponent('neil.HomeScreen', () => HomeScreen);
     Navigation.registerComponent('neil.RoomScreen', () => RoomScreen);

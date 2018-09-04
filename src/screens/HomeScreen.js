@@ -6,6 +6,7 @@ import Recent from '../components/home/recent/Recent';
 import Feature from '../components/home/feature/Feature';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import MyCarousel from '../components/home/Carousel/Carousel';
+
 //import Icon from 'react-native- vector-icons/';
 //import HomeDetails from '../components/home/HomeDetails';
 //import { loadInitialContacts } from '../actions';
@@ -55,7 +56,7 @@ class HomeScreen extends Component {
         this.props.navigator.setButtons({
             rightButtons: [
                 {
-                    title: 'Seach',
+                    title: 'Search',
                     id: 'search'
                 }
             ]

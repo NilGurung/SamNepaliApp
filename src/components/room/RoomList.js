@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { StyleSheet, View, ListView} from 'react-native';
-import rooms from '../../reducers/room.json';
+
 import RoomItem from './RoomItem';
 import FloatButton from '../../components/common/FloatButton';
 
@@ -15,14 +15,15 @@ const styles = StyleSheet.create({
 
 export default class RoomList extends Component {
 
+    constructor(props) {
+        super(props);
+    }
+
     componentWillMount() {
         //this.props.loadInitialContacts();
     }
 
-    // load rooms lists
-    loadDummyData() {
-        return rooms
-    }
+   
 
     //open the add rooms
     // addNewRoom(props) {
@@ -31,11 +32,10 @@ export default class RoomList extends Component {
     // }
 
     render() {
-        
         const ds = new ListView.DataSource({
             rowHasChanged: (r1,r2) => r1 !== r2,
         });
-        this.dataSource = ds.cloneWithRows(this.loadDummyData())
+        this.dataSource = ds.cloneWithRows(this.props.rooms)
         return (
             <View style={styles.container} >
                <ListView

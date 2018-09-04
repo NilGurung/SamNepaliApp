@@ -113,7 +113,7 @@ export default class SideDrawer extends Component {
         });
         this.dataSource = ds.cloneWithRows(menus)
         return (
-            <LinearGradient colors={['rgba(0, 0, 0, 0.7)', 'rgba(0,0,0, 0.9)', 'rgba(0,0,0, 1)']} style={styles.linearGradient}>
+            <LinearGradient colors={['rgba(102,153,255, 0.7)', 'rgba(128,179,255, 0.9)', 'rgba(153,204,255, 1)']} style={styles.linearGradient}>
                 <View style={{width: Dimensions.get("window").width * 0.8}}>
                     <ListView
                         enableEmptySections={true}
