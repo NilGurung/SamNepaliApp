@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {View, Text ,Dimensions, StyleSheet, ListView, Image } from 'react-native';
 import MenuItem from '../components/MenuItem';
 import firebase from 'firebase';
+import LinearGradient from 'react-native-linear-gradient';
 
 export default class SideDrawer extends Component {
     constructor(props) {
@@ -112,21 +113,23 @@ export default class SideDrawer extends Component {
         });
         this.dataSource = ds.cloneWithRows(menus)
         return (
-            <View style={{width: Dimensions.get("window").width * 0.8}}>
-                <ListView
-                    enableEmptySections={true}
-                    dataSource = {this.dataSource}
-                    renderRow = {
-                        (rowData) => 
-                            <MenuItem menu={rowData} />
-                        }
-                    style ={styles.listView}
-                />
-                <View style={{marginTop: 10,padding: 5,marginBottom: 10, justifyContent: 'center', alignItems: 'center'}}>
-                        <Image source={{uri : '/Users/nilkanthagurung/Desktop/react-native-project/crm/src/images/bill.jpeg'}}
-                style={{width: 80, height: 80, borderRadius: 80/2, }} />
+            <LinearGradient colors={['rgba(0, 0, 0, 0.7)', 'rgba(0,0,0, 0.9)', 'rgba(0,0,0, 1)']} style={styles.linearGradient}>
+                <View style={{width: Dimensions.get("window").width * 0.8}}>
+                    <ListView
+                        enableEmptySections={true}
+                        dataSource = {this.dataSource}
+                        renderRow = {
+                            (rowData) => 
+                                <MenuItem menu={rowData} />
+                            }
+                        style ={styles.listView}
+                    />
+                    <View style={{marginTop: 10,padding: 5,marginBottom: 10, justifyContent: 'center', alignItems: 'center'}}>
+                            <Image source={{uri : '/Users/nilkanthagurung/Desktop/react-native-project/crm/src/images/bill.jpeg'}}
+                    style={{width: 80, height: 80, borderRadius: 80/2, }} />
+                    </View>
                 </View>
-            </View>
+            </LinearGradient>
         )
     }
 }

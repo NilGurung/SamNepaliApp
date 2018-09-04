@@ -26,11 +26,6 @@ export default class Feature extends Component {
         return rooms
     }
 
-    //open the add rooms
-    // addNewRoom(props) {
-    //     this.props.addViewClicked = true;
-    //     console.log(this.props.addViewClicked);
-    // }
 
     _renderItem = ({item}) => (
         <RoomItem room={item} />
