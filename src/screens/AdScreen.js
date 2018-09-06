@@ -50,11 +50,15 @@ class AdScreen extends Component {
             title: 'Add a New Add',
             animated: true, // does the push have transition animation or does it happen immediately (optional)
             animationType: 'fade', // 'fade' (for both) / 'slide-horizontal' (for android) does the push have different transition animation (optional)
+            passProps: { onDone: () => this.addNewAd() }
         })
     }
 
 
-    
+    //add add
+    addNewAd() {
+        console.log('new ad Added');
+    }
 
 
     render() {

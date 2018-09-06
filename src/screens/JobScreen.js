@@ -44,10 +44,15 @@ class JobScreen extends Component {
             title: 'Add a New Job',
             animated: true, // does the push have transition animation or does it happen immediately (optional)
             animationType: 'fade', // 'fade' (for both) / 'slide-horizontal' (for android) does the push have different transition animation (optional)
+            passProps: { onDone: () => this.addNewJob() }
         })
     }
 
 
+    //add job
+    addNewJob() {
+        console.log('new job Added');
+    }
 
     render() {
         return (

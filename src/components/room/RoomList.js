@@ -25,12 +25,7 @@ export default class RoomList extends Component {
 
    
 
-    //open the add rooms
-    // addNewRoom(props) {
-    //     this.props.addViewClicked = true;
-    //     console.log(this.props.addViewClicked);
-    // }
-
+  
     render() {
         const ds = new ListView.DataSource({
             rowHasChanged: (r1,r2) => r1 !== r2,
@@ -46,7 +41,8 @@ export default class RoomList extends Component {
                             <RoomItem room={rowData} />
                         }
                 />
-                 <FloatButton style={{resizeMode: 'contain',}} onPress={this.props.onPress} />
+
+                 <FloatButton style={{resizeMode: 'contain',}} onPress={this.props.onPress}  />
             </View>
         )
     }

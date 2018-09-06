@@ -31,19 +31,26 @@ const AddButton = MKButton.coloredButton()
     .build();
                   
 class AddRoom extends Component {
+
+    constructor(props) {
+        super(props);
+    }
+
+
     static navigationOptions = {
         tabBarLabel: 'Add Person',
         tabBarIcon: ({ tintColor }) =>
         <Icon name={'plus'} size={45}  styles={[{color: tintColor}, styles.icon]} />
     }
 
-    onAddPress() {
-        const { location, details} = this.props;
+    // onAddPress() {
+    //     const { location, details} = this.props;
 
-        this.props.createNewRoom({ location, details});
+    //     this.props.createNewRoom({ location, details});
         
-        this.props.navigation.navigate('Rooms');
-    }
+    //     this.props.navigation.navigate('Rooms');
+    // }
+
     
     render() {
         let data = [{
@@ -67,11 +74,9 @@ class AddRoom extends Component {
                         tintColor = {MKColor.Teal}
                         value={this.props.details}
                         //onChangeText={value => this.props.formUpdate({prop: 'details', value})}
-                        
                     />
-                    
                     <View style={styles.addButton}>
-                        <AddButton onPress={this.onAddPress.bind(this)} />
+                        <AddButton onPress={this.props.onDone} />
                     </View>
                 </View>
             </ScrollView>

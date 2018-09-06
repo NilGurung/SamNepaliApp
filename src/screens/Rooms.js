@@ -27,6 +27,7 @@ class Rooms extends Component {
         this.setAddButtonStatus = this.setAddButtonStatus.bind(this);
         this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
         
+        
     }
 
     state = {
@@ -50,6 +51,7 @@ class Rooms extends Component {
 
     componentDidMount() {
         this.search1.focus();
+        //this.props.addNewRoom = this.addNewRoom.bind(this)
     }
 
 
@@ -59,6 +61,7 @@ class Rooms extends Component {
             title: 'Add a New Room',
             animated: true, // does the push have transition animation or does it happen immediately (optional)
             animationType: 'fade', // 'fade' (for both) / 'slide-horizontal' (for android) does the push have different transition animation (optional)
+            passProps: { onDone: () => this.addNewRoom() }
         })
     }
 
@@ -73,7 +76,11 @@ class Rooms extends Component {
     //     this.props.loadInitialContacts();
     // }
 
-    
+    //add rooms
+    addNewRoom() {
+        console.log('new room Added');
+    }
+
 
     searchRooms() {
         var searchText = this.state.search;
