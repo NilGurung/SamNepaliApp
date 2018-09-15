@@ -5,7 +5,7 @@ import _ from 'lodash';
 import rooms from '../reducers/room.json';
 import RoomList from '../components/room/RoomList';
 import SearchBar from 'react-native-search-bar'
-
+//import { loadInitialRooms } from '../actions/room';
 
 
 const styles = StyleSheet.create({
@@ -32,7 +32,7 @@ class Rooms extends Component {
 
     state = {
         search: '',
-        rooms: rooms
+        rooms: this.props.rooms
       }
     
     search1: SearchBar
@@ -72,9 +72,9 @@ class Rooms extends Component {
           this.search1.unFocus()
     }
 
-    // componentWillMount() {
-    //     this.props.loadInitialContacts();
-    // }
+    componentWillMount() {
+        //this.props.loadInitialRooms();
+    }
 
     //add rooms
     addNewRoom() {
@@ -117,5 +117,15 @@ class Rooms extends Component {
         );
       }
 }
+const mapStateToProps = state => {
+    const rooms = _.map(state.rooms, (val) => {
+        return {...val};
+    });
+    return {
+        rooms,
+        addView: state.addView
+    };
+};
 
-export default Rooms;
+export default connect(mapStateToProps, {})(Rooms);
+

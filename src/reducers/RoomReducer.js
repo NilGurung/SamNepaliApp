@@ -1,14 +1,12 @@
-import people from './room.json';
+import room from './room.json';
 
 const initialState = {
     rooms: [],
     addView: false,
-    personSelected: null,
     first_name: '',
     last_name: '',
     phone: '',
     email: '',
-    company: '',
     title: '',
     desc: ''
 };
@@ -34,7 +32,6 @@ export default (state = initialState, action) => {
                 last_name: '',
                 phone: '',
                 email: '',
-                company: '',
                 title: '',
                 desc: '',
             }

@@ -11,7 +11,7 @@ import { StyleSheet, Text, View} from 'react-native';
 import firebase from 'firebase';
 import Loader from '../components/Loader';
 import Login from '../components/Login';
-import MainTab from './MainTab';
+import MainTab from './main.tab';
 import {Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 

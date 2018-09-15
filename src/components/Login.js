@@ -11,7 +11,7 @@ import { StyleSheet, Text, View, Button} from 'react-native';
 import firebase from 'firebase';
 import { MKTextField, MKColor, MKButton, MKTouchable } from 'react-native-material-kit';
 import Loader from '../components/Loader';
-import MainTab from '../screens/MainTab';
+import MainTab from '../screens/main.tab';
 
 const LoginButton = MKButton.coloredButton()
                     .withText('LOGIN')
