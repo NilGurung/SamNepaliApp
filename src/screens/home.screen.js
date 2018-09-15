@@ -79,7 +79,7 @@ class HomeScreen extends Component {
         return (
             <ScrollView>
                 <View style={styles.container}>
-                    <Text>Slider Component</Text>
+                    <Text>Popular Announcements</Text>
                     <MyCarousel images={this.loadImages()}  />
                     <Recent />
                     <Feature />
