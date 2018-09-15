@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { StyleSheet, View, FlatList, Text} from 'react-native';
 import rooms from '../../../reducers/room.json';
 import RoomItem from '../../room/RoomItem';
-//import FloatButton from '../../components/common/FloatButton';
+import {human} from 'react-native-typography';
 import Carousel from 'react-native-snap-carousel';
 import { sliderWidth, itemWidth } from '../../../styles/SliderEntry';
 
@@ -13,6 +13,10 @@ const styles = StyleSheet.create({
       flexWrap: 'wrap',
       paddingTop: 10,
     },
+    title: {
+        marginBottom: 10,
+        paddingBottom: 10,
+    }
 })
 
 export default class Recent extends Component {
@@ -36,7 +40,7 @@ export default class Recent extends Component {
    
         return (
             <View style={styles.container} >
-                 <Text>Recent</Text>
+                 <Text style={[human.title3, styles.title]}>Recent</Text>
                  <Carousel
                     ref={(c) => { this._carousel = c; }}
                     data={this.loadDummyData()}

@@ -2,8 +2,9 @@ import React, {Component} from 'react';
 import { StyleSheet, View, ListView, Text} from 'react-native';
 import rooms from '../../../reducers/room.json';
 import RoomItem from '../../room/RoomItem';
-//import FloatButton from '../common/FloatButton';
+import {human} from 'react-native-typography';
 import Carousel from 'react-native-snap-carousel';
+
 import { sliderWidth, itemWidth } from '../../../styles/SliderEntry';
 
 const styles = StyleSheet.create({
@@ -13,6 +14,11 @@ const styles = StyleSheet.create({
       flexWrap: 'wrap',
       paddingTop: 10,
     },
+    title: {
+        marginTop: 10,
+        marginBottom: 10,
+        paddingBottom: 10,
+    }
 })
 
 export default class Feature extends Component {
@@ -40,7 +46,7 @@ export default class Feature extends Component {
         this.dataSource = ds.cloneWithRows(this.loadDummyData())
         return (
             <View style={styles.exampleContainer} >
-                <Text>Feature</Text>
+                <Text style={[human.title3, styles.title]}>Feature</Text>
                 <Carousel
                   data={this.loadDummyData()}
                   renderItem={this._renderItem}

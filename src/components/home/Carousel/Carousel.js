@@ -3,6 +3,7 @@ import { View, ScrollView, Image, StyleSheet, Dimensions, Text } from 'react-nat
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { sliderWidth, itemWidth } from '../../../styles/SliderEntry';
 import styles, { colors } from '../../../styles/Index.style';
+import {human} from 'react-native-typography';
 
  const { width } = Dimensions.get('window');
  const height = width * 0.6;
@@ -14,7 +15,7 @@ export default class MyCarousel extends Component {
     return (
         <View>
             <Image style={styles1.image} source={{uri: item.src}} />
-            {/* <Text style={styles.title}>{ item.title }</Text> */}
+            <Text style={[human.headline, styles.caption]}>{ item.title }</Text>
         </View>
     );
 }
@@ -25,8 +26,7 @@ render () {
 
     return (
         <View style={styles.exampleContainer}>
-            <Text style={styles.title}>{`Example 1`}</Text>
-            <Text style={styles.subtitle}>{'title'}</Text>
+            <Text style={human.title3}>Popular Announcements</Text>
             <Carousel
               ref={c => this._slider1Ref = c}
               data={images}
@@ -74,4 +74,7 @@ const styles1 = StyleSheet.create({
     width,
     height,
   },
+  caption: {
+     color: 'blue',
+  }
 });

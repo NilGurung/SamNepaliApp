@@ -23,8 +23,6 @@ const styles = StyleSheet.create({
                   
 class HomeScreen extends Component {
 
-    
-
     constructor(props) {
         super(props);
         this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
@@ -39,10 +37,6 @@ class HomeScreen extends Component {
                     
                   });
             } 
-
-            if (event.id === 'search') {
-                Alert.alert('NavBar', 'Search button pressed');
-            }
         }
     }
 
@@ -52,23 +46,11 @@ class HomeScreen extends Component {
         <Icon name={'home'} size={45}  color={tintColor} />
     }
 
-    componentDidMount() {
-        this.props.navigator.setButtons({
-            rightButtons: [
-                {
-                    title: 'Search',
-                    id: 'search'
-                }
-            ]
-        })
-    }
-
-
     loadImages() {
        return [
-            {"src": "/Users/nilkanthagurung/Desktop/react-native-project/crm/src/images/1.jpeg"},
-            {"src": "/Users/nilkanthagurung/Desktop/react-native-project/crm/src/images/2.jpeg"},
-            {"src": "/Users/nilkanthagurung/Desktop/react-native-project/crm/src/images/3.jpeg"}
+            {"src": "/Users/nilkanthagurung/Desktop/react-native-project/crm/src/images/1.jpeg", title: 'Neplays - Easy and reliable money transfer'},
+            {"src": "/Users/nilkanthagurung/Desktop/react-native-project/crm/src/images/2.jpeg", title: 'Buddha Travel- Your buddy for travelling '},
+            {"src": "/Users/nilkanthagurung/Desktop/react-native-project/crm/src/images/3.jpeg", title: 'Genuine Education- Best immigration Service provider'}
         ]
     }
 
@@ -79,7 +61,6 @@ class HomeScreen extends Component {
         return (
             <ScrollView>
                 <View style={styles.container}>
-                    <Text>Popular Announcements</Text>
                     <MyCarousel images={this.loadImages()}  />
                     <Recent />
                     <Feature />
